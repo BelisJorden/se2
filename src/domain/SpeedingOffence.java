@@ -17,6 +17,14 @@ public class SpeedingOffence extends Offence {
         this.speed = speed;
     }
 
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
     @Override
     public String toString() {
         return  "SpeedingOffence{" +

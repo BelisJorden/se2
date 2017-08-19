@@ -16,7 +16,7 @@ public class Generator {
     private String[] cityList = {"Antwerpen", "Brussel", "Mechelen", "Aartselaar", "Leuven", "Lier", "Bornem"};
     private String[] licensePlateList = {"1-BSR-328", "1-RBD-285", "1-AKD-845", "2-ASF-247", "1-DLJ-458", "1-MKN-291", "1-PDO-746"};
 
-    public String generate(int lowerBound,int upperBound) {
+    public Offence generate(int lowerBound,int upperBound) {
       Timestamp timestamp = generateTimestamp();
        String licenseplate = generateLicenseplate(licensePlateList);
       String street =  generateStreet();
@@ -24,7 +24,8 @@ public class Generator {
 
 
         Offence offence;
-        if (Math.random() * 100 < 95) {
+        //kans op speedoffence
+        if (Math.random() * 100 < 50) {
             int maxSpeed = generateMaxSpeed(maxSpeedList);
             int speed = generateSpeed(maxSpeed);
             offence = new SpeedingOffence(timestamp, licenseplate, street, city, maxSpeed, speed);
@@ -36,7 +37,7 @@ public class Generator {
              offence = new EmissionOffence(timestamp,licenseplate,street,city,mineuronorm,euronorm);
         }
 
-        return offence.toString();
+        return offence;
     }
 
     private int generateSpeed(int maxSpeed) {

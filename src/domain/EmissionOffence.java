@@ -17,6 +17,14 @@ public class EmissionOffence extends Offence {
         this.euronorm = euronorm;
     }
 
+    public int getMinEuronorm() {
+        return minEuronorm;
+    }
+
+    public int getEuronorm() {
+        return euronorm;
+    }
+
     @Override
     public String toString() {
         return "EmissionOffence{" +

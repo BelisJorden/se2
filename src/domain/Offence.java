@@ -18,6 +18,22 @@ public class Offence {
         this.city = city;
     }
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public String getLicencePlate() {
+        return licencePlate;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
     @Override
     public String toString() {
         return "domain.Offence{" +
