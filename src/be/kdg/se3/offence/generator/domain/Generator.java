@@ -1,6 +1,8 @@
-import domain.EmissionOffence;
-import domain.Offence;
-import domain.SpeedingOffence;
+package be.kdg.se3.offence.generator.domain;
+
+
+import be.kdg.se3.offence.generator.domain.entity.Offence;
+import be.kdg.se3.offence.generator.domain.entity.SpeedingOffence;
 
 import java.sql.Timestamp;
 import java.util.Random;
@@ -9,14 +11,24 @@ import java.util.Random;
  * Created by jorden on 2-8-2017.
  */
 public class Generator {
-    public Generator() {
+
+    private int speedOffencePercentage;
+
+
+    private int[] maxSpeedList;
+    private String[] cityList;
+    private String[] licensePlateList;
+    private int speedUpperLimit;
+
+    public Generator(int speedOffencePercentage, int[] maxSpeedList, String[] cityList, String[] licensePlateList,int speedUpperLimit) {
+        this.speedOffencePercentage = speedOffencePercentage;
+        this.maxSpeedList = maxSpeedList;
+        this.cityList = cityList;
+        this.licensePlateList = licensePlateList;
+        this.speedUpperLimit = speedUpperLimit;
     }
 
-    private int[] maxSpeedList = {30,50,70,120};
-    private String[] cityList = {"Antwerpen", "Brussel", "Mechelen", "Aartselaar", "Leuven", "Lier", "Bornem"};
-    private String[] licensePlateList = {"1-UNK-123", "2-ERR-123", "1-AKD-845", "2-ASF-247", "1-DLJ-458", "1-MKN-291", "1-PDO-746"};
-
-    public Offence generate(int lowerBound,int upperBound) {
+    public Offence generate() {
       Timestamp timestamp = generateTimestamp();
        String licenseplate = generateLicenseplate(licensePlateList);
       String street =  generateStreet();
@@ -25,7 +37,7 @@ public class Generator {
 
         Offence offence;
         //kans op speedoffence
-        if (Math.random() * 100 < 50) {
+        if (Math.random() * 100 < speedOffencePercentage) {
             int maxSpeed = generateMaxSpeed(maxSpeedList);
             int speed = generateSpeed(maxSpeed);
             offence = new SpeedingOffence(timestamp, licenseplate, street, city, maxSpeed, speed);
@@ -43,7 +55,7 @@ public class Generator {
     private int generateSpeed(int maxSpeed) {
         Random r = new Random();
         int min = maxSpeed + 1;
-        int max = maxSpeed + 50;
+        int max = min + speedUpperLimit;
         return r.nextInt(max-min) + min;
 
     }

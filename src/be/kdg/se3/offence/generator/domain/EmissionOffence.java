@@ -1,13 +1,14 @@
-package domain;
+package be.kdg.se3.offence.generator.domain;
 
-import domain.Offence;
+import be.kdg.se3.offence.generator.domain.entity.Offence;
 
 import java.sql.Timestamp;
 
 /**
- * Created by jorden on 2-8-2017.
+ * Created by jorden on 21-8-2017.
  */
 public class EmissionOffence extends Offence {
+
     private int minEuronorm;
     private int euronorm;
 

@@ -1,10 +1,8 @@
-package domain;
+package be.kdg.se3.offence.generator.domain.entity;
 
 import java.sql.Timestamp;
 
-/**
- * Created by jorden on 2-8-2017.
- */
+
 public class Offence {
     private Timestamp timestamp;
     private String licencePlate;
@@ -36,7 +34,7 @@ public class Offence {
 
     @Override
     public String toString() {
-        return "domain.Offence{" +
+        return "Offence{" +
                 "timestamp=" + timestamp +
                 ", licencePlate='" + licencePlate + '\'' +
                 ", street='" + street + '\'' +

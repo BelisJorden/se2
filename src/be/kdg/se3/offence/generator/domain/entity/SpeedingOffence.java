@@ -1,13 +1,11 @@
-package domain;
-
-import domain.Offence;
+package be.kdg.se3.offence.generator.domain.entity;
 
 import java.sql.Timestamp;
 
 /**
  * Created by jorden on 2-8-2017.
  */
-public class SpeedingOffence extends Offence {
+public class SpeedingOffence extends be.kdg.se3.offence.generator.domain.entity.Offence {
     private int maxSpeed;
     private int speed;
 
