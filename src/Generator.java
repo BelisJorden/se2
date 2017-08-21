@@ -14,7 +14,7 @@ public class Generator {
 
     private int[] maxSpeedList = {30,50,70,120};
     private String[] cityList = {"Antwerpen", "Brussel", "Mechelen", "Aartselaar", "Leuven", "Lier", "Bornem"};
-    private String[] licensePlateList = {"1-BSR-328", "1-RBD-285", "1-AKD-845", "2-ASF-247", "1-DLJ-458", "1-MKN-291", "1-PDO-746"};
+    private String[] licensePlateList = {"1-UNK-123", "2-ERR-123", "1-AKD-845", "2-ASF-247", "1-DLJ-458", "1-MKN-291", "1-PDO-746"};
 
     public Offence generate(int lowerBound,int upperBound) {
       Timestamp timestamp = generateTimestamp();
